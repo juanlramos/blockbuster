@@ -1,0 +1,56 @@
+[gd_scene format=4 uid="uid://shl7b0aw1p1v"]
+
+[ext_resource type="PackedScene" uid="uid://1xy5jgaowcpg" path="res://entities/player.tscn" id="1_5kiuu"]
+[ext_resource type="Texture2D" uid="uid://c0u538p7bd5ue" path="res://sprites/map/Terrain (16 x 16).png" id="2_dbls1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e778l"]
+size = Vector2(150, 13)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33cqm"]
+texture = ExtResource("2_dbls1")
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_e778l"]
+sources/0 = SubResource("TileSetAtlasSource_33cqm")
+
+[node name="Game" type="Node2D" unique_id=122301219]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=646102580]
+position = Vector2(-228, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1700160309]
+position = Vector2(303, -93)
+shape = SubResource("RectangleShape2D_e778l")
+debug_color = Color(0, 0.64676666, 0.2365573, 0.41960785)
+
+[node name="CharacterBody2D" parent="." unique_id=1291051950 instance=ExtResource("1_5kiuu")]
+position = Vector2(12, 16)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=124477061]
+tile_map_data = PackedByteArray("AAABAAUAAAAEAAEAAAACAAUAAAAEAAEAAAADAAUAAAAEAAEAAAAEAAUAAAAEAAEAAAAFAAUAAAAEAAEAAAAGAAUAAAAEAAEAAAAHAAUAAAAEAAEAAAABAAYAAAAEAAIAAAACAAYAAAAEAAIAAAADAAYAAAAEAAIAAAAEAAYAAAAEAAIAAAAFAAYAAAAEAAIAAAAGAAYAAAAEAAIAAAAHAAYAAAAEAAIAAAAIAAUAAAAEAAEAAAAJAAUAAAAEAAEAAAAKAAUAAAAEAAEAAAALAAUAAAAEAAEAAAAMAAUAAAAEAAEAAAANAAUAAAAFAAEAAAANAAYAAAAFAAIAAAAIAAYAAAAEAAIAAAAJAAYAAAAEAAIAAAAKAAYAAAAEAAIAAAALAAYAAAAEAAIAAAAMAAYAAAAEAAIAAAAAAAUAAAAEAAEAAAD//wUAAAAEAAEAAAAAAAYAAAAEAAIAAAD//wYAAAAEAAIAAAA=")
+tile_set = SubResource("TileSet_e778l")
