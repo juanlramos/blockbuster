@@ -138,15 +138,30 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="player" type="CharacterBody2D" unique_id=1291051950]
+[node name="player" type="CharacterBody2D" unique_id=1291051950 node_paths=PackedStringArray("PlayerSprite", "PlayerCollider", "leftRaycast", "middleRaycast", "rightRaycast")]
 script = ExtResource("1_merdl")
+PlayerSprite = NodePath("AnimatedSprite2D")
+PlayerCollider = NodePath("CollisionShape2D")
+leftRaycast = NodePath("lCast")
+middleRaycast = NodePath("mCast")
+rightRaycast = NodePath("rCast")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=761444590]
 shape = SubResource("CapsuleShape2D_e778l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=160013896]
 sprite_frames = SubResource("SpriteFrames_e778l")
-animation = &"jump"
+animation = &"walk"
 autoplay = "idle"
-frame = 7
-frame_progress = 0.27358204
+
+[node name="lCast" type="RayCast2D" parent="." unique_id=1317917986]
+position = Vector2(0, -25)
+target_position = Vector2(0, -25)
+
+[node name="mCast" type="RayCast2D" parent="." unique_id=282256180]
+position = Vector2(-6, -25)
+target_position = Vector2(0, -25)
+
+[node name="rCast" type="RayCast2D" parent="." unique_id=357831755]
+position = Vector2(6, -25)
+target_position = Vector2(0, -25)
