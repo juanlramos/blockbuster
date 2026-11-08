@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0u538p7bd5ue"
-path="res://.godot/imported/Terrain (16 x 16).png-f1e13e49d64358ea74d1291c75d8578f.ctex"
+uid="uid://3vdg1c2iduxm"
+path="res://.godot/imported/locadora.png-8e604ce01e80888466d6edfc9e8361d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/map/Terrain (16 x 16).png"
-dest_files=["res://.godot/imported/Terrain (16 x 16).png-f1e13e49d64358ea74d1291c75d8578f.ctex"]
+source_file="res://sprites/map/locadora.png"
+dest_files=["res://.godot/imported/locadora.png-8e604ce01e80888466d6edfc9e8361d3.ctex"]
 
 [params]
 
