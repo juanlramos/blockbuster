@@ -22,11 +22,11 @@ extends CharacterBody2D
 @export var descendingGravityFactor: float = 1.3
 
 #Corte de força do pulo
-@export var shortHopAkaVariableJumpHeight: bool = true
+@export var shortHop: bool = true
 @export var jumpVariable: float = 2
 
 #coyote e buffering
-@export var coyoteTime: float = 0.1
+@export var coyoteTime: float = 0.05
 @export var jumpBuffering: float = 0.1
 
 #Corner cutting
@@ -232,7 +232,7 @@ func _physics_process(delta):
 		if velocity.y > terminalVelocity:
 			velocity.y = terminalVelocity
 
-	if shortHopAkaVariableJumpHeight and jumpRelease and velocity.y < 0:
+	if shortHop and jumpRelease and velocity.y < 0:
 		velocity.y = velocity.y / jumpVariable
 	
 	if !is_on_floor() and coyoteTime > 0:
