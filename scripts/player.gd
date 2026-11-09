@@ -26,8 +26,8 @@ extends CharacterBody2D
 @export var jumpVariable: float = 2
 
 #coyote e buffering
-@export var coyoteTime: float = 0.2
-@export var jumpBuffering: float = 0.2
+@export var coyoteTime: float = 0.1
+@export var jumpBuffering: float = 0.1
 
 #Corner cutting
 @export var correctionAmount: float = 1.5
@@ -137,7 +137,7 @@ func _process(_delta):
 	#walk
 	if abs(velocity.x) > 0.1 and is_on_floor():
 		anim.speed_scale = abs(velocity.x / 150)
-		anim.play("walk")
+		anim.play("run")
 	elif abs(velocity.x) < 0.1 and is_on_floor():
 		anim.speed_scale = 1
 		anim.play("idle")

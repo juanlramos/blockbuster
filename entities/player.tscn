@@ -1,88 +1,35 @@
 [gd_scene format=3 uid="uid://1xy5jgaowcpg"]
 
 [ext_resource type="Script" uid="uid://d02u0ryuyujwd" path="res://scripts/player.gd" id="1_merdl"]
-[ext_resource type="Texture2D" uid="uid://bt6r1e5knnggi" path="res://sprites/player/character_idle1.png" id="2_b0kkn"]
-[ext_resource type="Texture2D" uid="uid://b0avqmpfju4r0" path="res://sprites/player/character_walk.png" id="3_e4p34"]
-[ext_resource type="Texture2D" uid="uid://ush4wg8q3f22" path="res://sprites/player/character_jump.png" id="3_rfe5m"]
+[ext_resource type="Texture2D" uid="uid://cng473s5sxyy4" path="res://sprites/player/Idle/playerIdle1.png" id="2_qsoyl"]
+[ext_resource type="Texture2D" uid="uid://dtrnxupl1b7lf" path="res://sprites/player/Idle/playerIdle2.png" id="3_6nm46"]
+[ext_resource type="Texture2D" uid="uid://cis4lspabdh5d" path="res://sprites/player/Idle/playerIdle3.png" id="4_i623q"]
+[ext_resource type="Texture2D" uid="uid://cqdqcoxibu6k4" path="res://sprites/player/Jump/playerJump1.png" id="5_0i614"]
+[ext_resource type="Texture2D" uid="uid://c1lc6gs5flne5" path="res://sprites/player/Jump/playerJump2.png" id="6_oprnr"]
+[ext_resource type="Texture2D" uid="uid://bplheojpwfjr8" path="res://sprites/player/Jump/playerJump3.png" id="7_8rie4"]
+[ext_resource type="Texture2D" uid="uid://c5exut3qxdxb8" path="res://sprites/player/Run/playerRun1.png" id="8_dp3pk"]
+[ext_resource type="Texture2D" uid="uid://b4mvg0lbxoege" path="res://sprites/player/Run/playerRun2.png" id="9_cgp7q"]
+[ext_resource type="Texture2D" uid="uid://de805prurp885" path="res://sprites/player/Run/playerRun3.png" id="10_1n8aq"]
+[ext_resource type="Texture2D" uid="uid://pqqakavlfepe" path="res://sprites/player/Run/playerRun4.png" id="11_28s6d"]
+[ext_resource type="Texture2D" uid="uid://bqjaat677s1jv" path="res://sprites/player/Run/playerRun5.png" id="12_cicqb"]
+[ext_resource type="Texture2D" uid="uid://cb2j0vqxs2rv2" path="res://sprites/player/Run/playerRun6.png" id="13_hj0ki"]
+[ext_resource type="Texture2D" uid="uid://ebxe35sly7d" path="res://sprites/player/Run/playerRun7.png" id="14_fruft"]
+[ext_resource type="Texture2D" uid="uid://cpucy5myw2bok" path="res://sprites/player/Run/playerRun8.png" id="15_slxql"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e778l"]
 radius = 5.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e4p34"]
-atlas = ExtResource("2_b0kkn")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rfe5m"]
-atlas = ExtResource("2_b0kkn")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qly61"]
-atlas = ExtResource("2_b0kkn")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x08pd"]
-atlas = ExtResource("3_rfe5m")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dchgp"]
-atlas = ExtResource("3_rfe5m")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdgjc"]
-atlas = ExtResource("3_rfe5m")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q0i8f"]
-atlas = ExtResource("3_rfe5m")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0i614"]
-atlas = ExtResource("3_rfe5m")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oprnr"]
-atlas = ExtResource("3_rfe5m")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8rie4"]
-atlas = ExtResource("3_rfe5m")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dp3pk"]
-atlas = ExtResource("3_rfe5m")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qsoyl"]
-atlas = ExtResource("3_e4p34")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6nm46"]
-atlas = ExtResource("3_e4p34")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i623q"]
-atlas = ExtResource("3_e4p34")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ef06p"]
-atlas = ExtResource("3_e4p34")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tjdhl"]
-atlas = ExtResource("3_e4p34")
-region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e778l"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e4p34")
+"texture": ExtResource("2_qsoyl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rfe5m")
+"texture": ExtResource("3_6nm46")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qly61")
+"texture": ExtResource("4_i623q")
 }],
 "loop": 1,
 "name": &"idle",
@@ -90,51 +37,45 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x08pd")
+"texture": ExtResource("5_0i614")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dchgp")
+"texture": ExtResource("6_oprnr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kdgjc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q0i8f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0i614")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oprnr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8rie4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dp3pk")
+"texture": ExtResource("7_8rie4")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"jump",
 "speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qsoyl")
+"texture": ExtResource("8_dp3pk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6nm46")
+"texture": ExtResource("9_cgp7q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i623q")
+"texture": ExtResource("10_1n8aq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ef06p")
+"texture": ExtResource("11_28s6d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tjdhl")
+"texture": ExtResource("12_cicqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hj0ki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fruft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_slxql")
 }],
 "loop": 1,
-"name": &"walk",
+"name": &"run",
 "speed": 10.0
 }]
 
@@ -151,22 +92,19 @@ shape = SubResource("CapsuleShape2D_e778l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=160013896]
 sprite_frames = SubResource("SpriteFrames_e778l")
-animation = &"walk"
+animation = &"jump"
 autoplay = "idle"
-frame = 4
-frame_progress = 0.27358204
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1470394629]
 visible = false
 
 [node name="lCast" type="RayCast2D" parent="." unique_id=1317917986]
-position = Vector2(0, -25)
 target_position = Vector2(0, -25)
 
 [node name="mCast" type="RayCast2D" parent="." unique_id=282256180]
-position = Vector2(-6, -25)
+position = Vector2(-6, 0)
 target_position = Vector2(0, -25)
 
 [node name="rCast" type="RayCast2D" parent="." unique_id=357831755]
-position = Vector2(6, -25)
+position = Vector2(6, 0)
 target_position = Vector2(0, -25)
