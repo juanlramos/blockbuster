@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bf5w48k23ja20" path="res://sprites/map/sky.png" id="1_qpk70"]
 [ext_resource type="Script" uid="uid://gw2h65134ccb" path="res://scripts/camera.gd" id="2_33cqm"]
 [ext_resource type="Texture2D" uid="uid://db2fn3a4xjg53" path="res://sprites/map/street_tile.png" id="3_xwcet"]
-[ext_resource type="Texture2D" uid="uid://y4yyonmk4sbx" path="res://sprites/map/lamppost.png" id="4_ll5lq"]
+[ext_resource type="Texture2D" uid="uid://cfy104ud62b4a" path="res://sprites/map/Street_lights.png" id="4_qpk70"]
 [ext_resource type="Texture2D" uid="uid://3vdg1c2iduxm" path="res://sprites/map/locadora.png" id="5_xlg7c"]
 [ext_resource type="Texture2D" uid="uid://d0v82fw6da6py" path="res://sprites/map/cloud.png" id="7_ll5lq"]
 
@@ -80,19 +80,16 @@ position = Vector2(-117, 0)
 texture = ExtResource("5_xlg7c")
 
 [node name="Lamppost" type="Sprite2D" parent="." unique_id=651932176]
-position = Vector2(63.000004, 54)
-scale = Vector2(0.25144508, 0.25144506)
-texture = ExtResource("4_ll5lq")
+position = Vector2(63, 49)
+texture = ExtResource("4_qpk70")
 
 [node name="Lamppost2" type="Sprite2D" parent="." unique_id=136191625]
-position = Vector2(255, 54.000004)
-scale = Vector2(0.25144508, 0.25144506)
-texture = ExtResource("4_ll5lq")
+position = Vector2(255, 49)
+texture = ExtResource("4_qpk70")
 
 [node name="Lamppost3" type="Sprite2D" parent="." unique_id=640585145]
-position = Vector2(-292, 54.000004)
-scale = Vector2(0.25144508, 0.25144506)
-texture = ExtResource("4_ll5lq")
+position = Vector2(-295, 49)
+texture = ExtResource("4_qpk70")
 
 [node name="Player" parent="." unique_id=1291051950 instance=ExtResource("1_5kiuu")]
 position = Vector2(9, 54)
