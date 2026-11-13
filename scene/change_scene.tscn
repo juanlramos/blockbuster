@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cyvsowx8tfi42"]
+
+[ext_resource type="Script" uid="uid://doo2vis4mav70" path="res://scripts/change_scene.gd" id="1_6cmam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6fb3"]
+size = Vector2(87, 71.625)
+
+[node name="ChangeScene" type="Area2D" unique_id=1635667681]
+script = ExtResource("1_6cmam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=565733357]
+shape = SubResource("RectangleShape2D_g6fb3")

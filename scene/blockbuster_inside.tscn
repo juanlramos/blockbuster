@@ -1,0 +1,120 @@
+[gd_scene format=4 uid="uid://8o713af3s4o7"]
+
+[ext_resource type="Texture2D" uid="uid://bawyghju8drnt" path="res://sprites/map/inside blockbuster/empty blockbuster.png" id="1_gt1sp"]
+[ext_resource type="Texture2D" uid="uid://bu682qmf2f1n7" path="res://sprites/map/inside blockbuster/balcao.png" id="2_qptcs"]
+[ext_resource type="Texture2D" uid="uid://b75onxllupkvb" path="res://sprites/map/inside blockbuster/secao1.png" id="5_flufw"]
+[ext_resource type="Texture2D" uid="uid://d25aurbt0wbld" path="res://sprites/map/inside blockbuster/secao2.png" id="6_3r5wm"]
+[ext_resource type="Texture2D" uid="uid://dgdvjtwm0tn0b" path="res://sprites/map/inside blockbuster/secao3.png" id="7_wtw2d"]
+[ext_resource type="Texture2D" uid="uid://8acowjexu5ux" path="res://sprites/map/inside blockbuster/secao4.png" id="8_r3hq2"]
+[ext_resource type="Texture2D" uid="uid://koyw6k15j6l3" path="res://sprites/map/inside blockbuster/estante.png" id="9_6ivmy"]
+[ext_resource type="PackedScene" uid="uid://1xy5jgaowcpg" path="res://entities/player.tscn" id="9_qptcs"]
+[ext_resource type="Texture2D" uid="uid://dpd5hfkfr25m3" path="res://sprites/map/inside blockbuster/wall_floor_blockbuster.png" id="10_flufw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qptcs"]
+texture = ExtResource("10_flufw")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wxkx7"]
+texture = ExtResource("9_6ivmy")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g6fb3"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_qptcs")
+sources/1 = SubResource("TileSetAtlasSource_wxkx7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6fb3"]
+size = Vector2(46, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qptcs"]
+size = Vector2(46, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxkx7"]
+size = Vector2(46, 134)
+
+[node name="blockbuster_inside" type="Node2D" unique_id=809494616]
+
+[node name="background" type="Sprite2D" parent="." unique_id=1293365181]
+position = Vector2(-0.50000715, -51.5)
+scale = Vector2(0.97661877, 0.63124996)
+texture = ExtResource("1_gt1sp")
+
+[node name="balcao" type="Sprite2D" parent="." unique_id=1726055517]
+position = Vector2(-249, -20)
+scale = Vector2(0.76666665, 0.6076923)
+texture = ExtResource("2_qptcs")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1335131152]
+tile_map_data = PackedByteArray("AADv/wAAAAABAAIAAADv/wEAAAABAAMAAADw/wAAAAAAAAIAAADw/wEAAAAAAAMAAADx/wAAAAABAAIAAADx/wEAAAABAAMAAADy/wAAAAAAAAIAAADy/wEAAAAAAAMAAADz/wAAAAABAAIAAADz/wEAAAABAAMAAAD0/wAAAAAAAAIAAAD0/wEAAAAAAAMAAAD1/wAAAAABAAIAAAD1/wEAAAABAAMAAAD2/wAAAAAAAAIAAAD2/wEAAAAAAAMAAAD3/wAAAAABAAIAAAD3/wEAAAABAAMAAAD4/wAAAAAAAAIAAAD4/wEAAAAAAAMAAAD5/wAAAAABAAIAAAD5/wEAAAABAAMAAAD6/wAAAAAAAAIAAAD6/wEAAAAAAAMAAAD7/wAAAAABAAIAAAD7/wEAAAABAAMAAAD8/wAAAAAAAAIAAAD8/wEAAAAAAAMAAAD9/wAAAAABAAIAAAD9/wEAAAABAAMAAAD+/wAAAAAAAAIAAAD+/wEAAAAAAAMAAAD//wAAAAABAAIAAAD//wEAAAABAAMAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAMAAAABAAAAAAABAAIAAAABAAEAAAABAAMAAAACAAAAAAAAAAIAAAACAAEAAAAAAAMAAAADAAAAAAABAAIAAAADAAEAAAABAAMAAAAEAAAAAAAAAAIAAAAEAAEAAAAAAAMAAAAFAAAAAAABAAIAAAAFAAEAAAABAAMAAAAGAAAAAAAAAAIAAAAGAAEAAAAAAAMAAAAHAAAAAAABAAIAAAAHAAEAAAABAAMAAAAIAAAAAAAAAAIAAAAIAAEAAAAAAAMAAAAJAAAAAAABAAIAAAAJAAEAAAABAAMAAAAKAAAAAAAAAAIAAAAKAAEAAAAAAAMAAAALAAAAAAABAAIAAAALAAEAAAABAAMAAAAMAAAAAAAAAAIAAAAMAAEAAAAAAAMAAAANAAAAAAABAAIAAAANAAEAAAABAAMAAAAOAAAAAAAAAAIAAAAOAAEAAAAAAAMAAAAPAAAAAAABAAIAAAAPAAEAAAABAAMAAAAQAAAAAAAAAAIAAAAQAAEAAAAAAAMAAAA=")
+tile_set = SubResource("TileSet_g6fb3")
+
+[node name="Secao" type="Sprite2D" parent="." unique_id=879831963]
+position = Vector2(-121, -51)
+scale = Vector2(0.6851852, 0.7589286)
+texture = ExtResource("5_flufw")
+
+[node name="Secao2" type="Sprite2D" parent="." unique_id=1771690554]
+position = Vector2(-39, -51)
+scale = Vector2(0.6851852, 0.7589286)
+texture = ExtResource("6_3r5wm")
+
+[node name="Secao4" type="Sprite2D" parent="." unique_id=274873834]
+position = Vector2(119.99999, -52)
+scale = Vector2(0.6851852, 0.7589286)
+texture = ExtResource("8_r3hq2")
+
+[node name="Secao3" type="Sprite2D" parent="." unique_id=1808380268]
+position = Vector2(40, -55.999996)
+scale = Vector2(0.6851852, 0.7589286)
+texture = ExtResource("7_wtw2d")
+
+[node name="player" parent="." unique_id=1291051950 instance=ExtResource("9_qptcs")]
+position = Vector2(247, -16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2107465074]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1906649701]
+position = Vector2(-249, -17)
+shape = SubResource("RectangleShape2D_g6fb3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1675873200]
+position = Vector2(-295, -51)
+shape = SubResource("RectangleShape2D_qptcs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=670616930]
+position = Vector2(291, -35)
+shape = SubResource("RectangleShape2D_wxkx7")

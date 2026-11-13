@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dfcso12linnqe"]
+
+[ext_resource type="Script" uid="uid://cdstqek46xphs" path="res://scripts/change_char_talk.gd" id="1_ekvnq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6fb3"]
+size = Vector2(20, 178)
+
+[node name="ChangeTalk" type="Area2D" unique_id=493889930]
+script = ExtResource("1_ekvnq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2096626853]
+shape = SubResource("RectangleShape2D_g6fb3")

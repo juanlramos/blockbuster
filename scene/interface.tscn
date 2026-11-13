@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bpl0mwqt8xel1"]
+
+[ext_resource type="PackedScene" uid="uid://oy6yt127rey5" path="res://scene/cd.tscn" id="1_i8sso"]
+[ext_resource type="PackedScene" uid="uid://die17xtg4ike5" path="res://scene/pop_corn.tscn" id="2_bf661"]
+
+[node name="Interface" type="Control" unique_id=1014271311]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CD" parent="." unique_id=1673384993 instance=ExtResource("1_i8sso")]
+layout_mode = 0
+offset_left = 361.0
+offset_right = 406.0
+offset_bottom = 21.0
+
+[node name="PopCorn" parent="." unique_id=1026621426 instance=ExtResource("2_bf661")]
+layout_mode = 0

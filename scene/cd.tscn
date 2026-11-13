@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://oy6yt127rey5"]
+
+[ext_resource type="Texture2D" uid="uid://cld7wtkwapmto" path="res://sprites/CD.png" id="1_nk2ft"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g6fb3"]
+
+[node name="CD" type="NinePatchRect" unique_id=1673384993]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1470712908]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 18.0
+offset_bottom = 19.0
+texture = ExtResource("1_nk2ft")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=258140100]
+layout_mode = 0
+offset_left = 12.0
+offset_top = -2.0
+offset_right = 52.0
+offset_bottom = 21.0
+text = "x 0"
+label_settings = SubResource("LabelSettings_g6fb3")
+horizontal_alignment = 1
+vertical_alignment = 1

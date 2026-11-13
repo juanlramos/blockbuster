@@ -1,14 +1,21 @@
 extends CharacterBody2D
+class_name Player
 
 @export var PlayerSprite: AnimatedSprite2D
 @export var PlayerCollider: CollisionShape2D
 
 #const SPEED = 30.0
 #const JUMP_VELOCITY = -300.0
+
 #movimentação
 @export var maxSpeed: float = 150.0
 @export var timeToReachMaxSpeed: float = 0.2
 @export var timeToReachZeroSpeed: float = 0.2
+
+#onready
+@onready var fala_label: Label = $Fala
+@onready var dust_particles: GPUParticles2D = $GPUParticles2D
+
 
 #pulo
 @export var jumpHeight: float = 1
@@ -26,7 +33,7 @@ extends CharacterBody2D
 @export var jumpVariable: float = 2
 
 #coyote e buffering
-@export var coyoteTime: float = 0.05
+@export var coyoteTime: float = 0.1
 @export var jumpBuffering: float = 0.1
 
 #Corner cutting
@@ -36,6 +43,8 @@ extends CharacterBody2D
 @export var rightRaycast: RayCast2D
 
 #crouch?
+
+
 
 #variaveis
 var appliedGravity: float
@@ -54,6 +63,7 @@ var jumpWasPressed: bool = false
 var coyoteActive: bool = false
 var dashMagnitude: float
 var gravityActive: bool = true
+var was_on_floor: bool = true
 
 var wasMovingR: bool
 var wasPressingR: bool
@@ -80,14 +90,16 @@ var rightRelease
 var jumpTap
 var jumpRelease
 
+var can_control : bool = true
+var coyote_timer_id: int = 0
+
 func _ready():
 	wasMovingR = true
 	anim = PlayerSprite
 	col = PlayerCollider
 	
 	_updateData()
-
-
+	
 func _updateData():
 	acceleration = maxSpeed / timeToReachMaxSpeed
 	deceleration = -maxSpeed / timeToReachZeroSpeed
@@ -152,6 +164,9 @@ func _process(_delta):
 	#	anim.play("falling")
 
 func _physics_process(delta):
+	
+	if not can_control: return
+	
 	if !dset:
 		gdelta = delta
 		dset = true
@@ -203,6 +218,8 @@ func _physics_process(delta):
 	if leftTap:
 		wasPressingR = false
 	
+	#particulas no pe
+	dust_particles.emitting = abs(velocity.x) > 10 and is_on_floor()
 	
 	maxSpeed = maxSpeedLock
 	col.scale.y = colliderScaleLockY
@@ -220,24 +237,32 @@ func _physics_process(delta):
 	else:
 		appliedGravity = gravityScale * 60
 	
-	# Aplica a gravidade se o corpo não estiver no chão (ou sempre que gravityActive for true)
 	if gravityActive:
 		if not is_on_floor():
 			velocity.y += appliedGravity * delta
 		else:
-			# Se estiver no chão, zera a descida para colar o player no chão
 			velocity.y = 0.0
 
-		# Limita a velocidade terminal de queda
 		if velocity.y > terminalVelocity:
 			velocity.y = terminalVelocity
 
 	if shortHop and jumpRelease and velocity.y < 0:
 		velocity.y = velocity.y / jumpVariable
+		
+	var just_left_floor = was_on_floor and not is_on_floor()
 	
-	if !is_on_floor() and coyoteTime > 0:
+	if is_on_floor():
+		jumpCount = jumps
 		coyoteActive = true
-		_coyoteTime()
+		was_on_floor = true
+		if jumpWasPressed:
+			_jump()
+	else:
+		if just_left_floor and coyoteTime > 0:
+			_coyoteTime()
+		
+		was_on_floor = false
+
 	if jumpTap:
 		if coyoteActive:
 			coyoteActive = false
@@ -246,17 +271,6 @@ func _physics_process(delta):
 			jumpWasPressed = true
 			_bufferJump()
 		elif jumpBuffering == 0 and coyoteTime == 0 and is_on_floor():
-			_jump()
-	elif jumpTap and is_on_floor():
-		_jump()
-		
-	if is_on_floor():
-		jumpCount = jumps
-		if coyoteTime > 0:
-			coyoteActive = true
-		else:
-			coyoteActive = false
-		if jumpWasPressed:
 			_jump()
 	
 	#corner cutting
@@ -272,9 +286,14 @@ func _bufferJump():
 	jumpWasPressed = false
 	
 func _coyoteTime():
-	await get_tree().create_timer(coyoteTime).timeout
-	coyoteActive = false
+	coyote_timer_id += 1
+	var current_id = coyote_timer_id
 	
+	await get_tree().create_timer(coyoteTime).timeout
+	
+	if current_id == coyote_timer_id:
+		coyoteActive = false
+		
 func _jump():
 	if jumpCount > 0:
 		velocity.y = -jumpMagnitude
@@ -303,3 +322,32 @@ func _pauseGravity(time):
 	
 func _placeHolder():
 	print("")
+
+func handle_fall() -> void:
+	print("Player died")
+	visible = false
+	can_control = false
+	
+	reset_player()
+	
+func reset_player() -> void:
+	var checkpoints = get_tree().get_nodes_in_group("checkpoints")
+	
+	if checkpoints.size() > 0:
+		var closest_checkpoint = checkpoints[0]
+		var min_distance = global_position.distance_to(closest_checkpoint.global_position)
+		
+		for cp in checkpoints:
+			var distance = global_position.distance_to(cp.global_position)
+			if distance < min_distance:
+				min_distance = distance
+				closest_checkpoint = cp
+		
+		global_position = closest_checkpoint.global_position
+	
+	velocity = Vector2.ZERO
+	visible = true
+	can_control = true
+	
+func change_talk(novo_texto: String) -> void:
+	fala_label.text = novo_texto

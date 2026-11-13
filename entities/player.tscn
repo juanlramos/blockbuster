@@ -15,9 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://cb2j0vqxs2rv2" path="res://sprites/player/Run/playerRun6.png" id="13_hj0ki"]
 [ext_resource type="Texture2D" uid="uid://ebxe35sly7d" path="res://sprites/player/Run/playerRun7.png" id="14_fruft"]
 [ext_resource type="Texture2D" uid="uid://cpucy5myw2bok" path="res://sprites/player/Run/playerRun8.png" id="15_slxql"]
+[ext_resource type="Texture2D" uid="uid://xifoddml65t8" path="res://sprites/player/dust.png" id="16_oprnr"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e778l"]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0i614"]
+radius = 7.5
+height = 32.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e778l"]
 animations = [{
@@ -79,6 +81,44 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="SystemFont" id="SystemFont_j4yq4"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_g6fb3"]
+font = SubResource("SystemFont_j4yq4")
+font_size = 3
+
+[sub_resource type="Curve" id="Curve_ivyne"]
+_data = [Vector2(0, 0.57303375), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4e32s"]
+curve = SubResource("Curve_ivyne")
+
+[sub_resource type="Curve" id="Curve_8rie4"]
+_data = [Vector2(0, 0.5617978), 0.0, 0.0, 0, 0, Vector2(1, 0.30337083), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_j4yq4"]
+curve = SubResource("Curve_8rie4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g6fb3"]
+particle_flag_disable_z = true
+angle_min = 5.000011
+angle_max = 15.0000105
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, -50, 0)
+damping_min = 5.0
+damping_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_j4yq4")
+color = Color(0.9384497, 0.9384497, 0.9384497, 1)
+alpha_curve = SubResource("CurveTexture_4e32s")
+turbulence_enabled = true
+
 [node name="player" type="CharacterBody2D" unique_id=1291051950 node_paths=PackedStringArray("PlayerSprite", "PlayerCollider", "leftRaycast", "middleRaycast", "rightRaycast")]
 script = ExtResource("1_merdl")
 PlayerSprite = NodePath("AnimatedSprite2D")
@@ -88,11 +128,12 @@ middleRaycast = NodePath("mCast")
 rightRaycast = NodePath("rCast")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=761444590]
-shape = SubResource("CapsuleShape2D_e778l")
+position = Vector2(-0.5, -1)
+shape = SubResource("CapsuleShape2D_0i614")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=160013896]
 sprite_frames = SubResource("SpriteFrames_e778l")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1470394629]
@@ -108,3 +149,23 @@ target_position = Vector2(0, -25)
 [node name="rCast" type="RayCast2D" parent="." unique_id=357831755]
 position = Vector2(6, 0)
 target_position = Vector2(0, -25)
+
+[node name="Fala" type="Label" parent="." unique_id=1346431013]
+custom_minimum_size = Vector2(1, 1)
+offset_left = -24.0
+offset_top = -26.0
+offset_right = 24.0
+offset_bottom = -19.0
+label_settings = SubResource("LabelSettings_g6fb3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1536383165]
+position = Vector2(0, 15)
+emitting = false
+amount = 6
+texture = ExtResource("16_oprnr")
+lifetime = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_g6fb3")

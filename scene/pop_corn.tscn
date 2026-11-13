@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://die17xtg4ike5"]
+
+[ext_resource type="Texture2D" uid="uid://p8ms4btyinu3" path="res://sprites/popcorn.png" id="1_e5sgl"]
+
+[node name="PopCorn" type="NinePatchRect" unique_id=1026621426]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=189497923]
+layout_mode = 0
+offset_right = 23.0
+offset_bottom = 23.0
+texture = ExtResource("1_e5sgl")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=1171053084]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 64.0
+offset_bottom = 23.0
+text = "x 3"
