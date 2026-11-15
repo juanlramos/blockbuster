@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bpl0mwqt8xel1"]
 
-[ext_resource type="PackedScene" uid="uid://oy6yt127rey5" path="res://scene/cd.tscn" id="1_i8sso"]
-[ext_resource type="PackedScene" uid="uid://die17xtg4ike5" path="res://scene/pop_corn.tscn" id="2_bf661"]
+[ext_resource type="Script" uid="uid://bgvjb2t7aj574" path="res://scripts/interface.gd" id="1_7q87o"]
+[ext_resource type="PackedScene" uid="uid://oy6yt127rey5" path="res://scene/cd_interface.tscn" id="1_i8sso"]
+[ext_resource type="PackedScene" uid="uid://die17xtg4ike5" path="res://scene/popcorn_interface.tscn" id="2_bf661"]
 
 [node name="Interface" type="Control" unique_id=1014271311]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7q87o")
 
 [node name="CD" parent="." unique_id=1673384993 instance=ExtResource("1_i8sso")]
 layout_mode = 0

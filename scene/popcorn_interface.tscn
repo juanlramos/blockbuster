@@ -13,9 +13,9 @@ offset_bottom = 23.0
 texture = ExtResource("1_e5sgl")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="." unique_id=1171053084]
+[node name="Label" type="Label" parent="." unique_id=1907908196]
 layout_mode = 0
-offset_left = 24.0
-offset_right = 64.0
+offset_left = 23.0
+offset_right = 63.0
 offset_bottom = 23.0
 text = "x 3"

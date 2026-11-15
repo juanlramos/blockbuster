@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cjwgtkgus3pbc"]
+
+[ext_resource type="Script" uid="uid://cik5gtejor4w7" path="res://scripts/popcorn_item.gd" id="1_2uvre"]
+[ext_resource type="Texture2D" uid="uid://p8ms4btyinu3" path="res://sprites/popcorn.png" id="2_oo5q1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6fb3"]
+size = Vector2(8, 13)
+
+[node name="Popcorn" type="Node2D" unique_id=348232282]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=256396448]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oo5q1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2003774687]
+script = ExtResource("1_2uvre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1384252214]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_g6fb3")

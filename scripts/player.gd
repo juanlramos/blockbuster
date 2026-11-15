@@ -80,7 +80,7 @@ var anim
 var col
 var animScaleLock : Vector2
 
-#Input Variables for the whole script
+#inputs
 var leftHold
 var leftTap
 var leftRelease
@@ -328,8 +328,11 @@ func handle_fall() -> void:
 	visible = false
 	can_control = false
 	
+	$Health.lose_health()
 	reset_player()
 	
+	
+#falta adicionar para selecionar apenas os checkpoints que ele já passou e não por distancia.
 func reset_player() -> void:
 	var checkpoints = get_tree().get_nodes_in_group("checkpoints")
 	
