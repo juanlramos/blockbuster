@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://ebxe35sly7d" path="res://sprites/player/Run/playerRun7.png" id="14_fruft"]
 [ext_resource type="Texture2D" uid="uid://cpucy5myw2bok" path="res://sprites/player/Run/playerRun8.png" id="15_slxql"]
 [ext_resource type="Texture2D" uid="uid://xifoddml65t8" path="res://sprites/player/dust.png" id="16_oprnr"]
-[ext_resource type="PackedScene" uid="uid://cjrsxalkno6tk" path="res://scene/health.tscn" id="17_8rie4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0i614"]
 radius = 7.5
@@ -170,5 +169,3 @@ texture = ExtResource("16_oprnr")
 lifetime = 0.2
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_g6fb3")
-
-[node name="Health" parent="." unique_id=965573294 instance=ExtResource("17_8rie4")]

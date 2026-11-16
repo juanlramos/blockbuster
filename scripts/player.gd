@@ -7,6 +7,9 @@ class_name Player
 #const SPEED = 30.0
 #const JUMP_VELOCITY = -300.0
 
+@export var max_health := 3
+var health : int
+signal health_changed(health)
 #movimentação
 @export var maxSpeed: float = 150.0
 @export var timeToReachMaxSpeed: float = 0.2
@@ -27,6 +30,7 @@ class_name Player
 @export var gravityScale: float = 20.0
 @export var terminalVelocity: float = 500.0
 @export var descendingGravityFactor: float = 1.3
+
 
 #Corte de força do pulo
 @export var shortHop: bool = true
@@ -97,6 +101,9 @@ func _ready():
 	wasMovingR = true
 	anim = PlayerSprite
 	col = PlayerCollider
+	
+	health = max_health
+	emit_signal("health_changed", health)
 	
 	_updateData()
 	
@@ -324,11 +331,10 @@ func _placeHolder():
 	print("")
 
 func handle_fall() -> void:
-	print("Player died")
 	visible = false
 	can_control = false
 	
-	$Health.lose_health()
+	lose_health()
 	reset_player()
 	
 	
@@ -354,3 +360,13 @@ func reset_player() -> void:
 	
 func change_talk(novo_texto: String) -> void:
 	fala_label.text = novo_texto
+
+func lose_health():
+	health -= 1
+	emit_signal("health_changed", health)
+	if health == 0:
+		change_talk("Não da pra morrer no tutorial né") 
+
+func health_collected():
+	health += 1
+	emit_signal("health_changed", health)

@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bpl0mwqt8xel1" path="res://scene/interface.tscn" id="25_0u2bg"]
 [ext_resource type="PackedScene" uid="uid://dfcso12linnqe" path="res://scene/ChangeCharTalk.tscn" id="26_2d2t1"]
 [ext_resource type="PackedScene" uid="uid://cjwgtkgus3pbc" path="res://scene/popcorn_item.tscn" id="27_1e8m6"]
+[ext_resource type="AudioStream" uid="uid://bqk6mkd5jquyi" path="res://new_song.wav" id="28_hpuym"]
 
 [sub_resource type="Gradient" id="Gradient_ux4dc"]
 offsets = PackedFloat32Array(0.054054055, 0.44339624, 0.7264151, 1)
@@ -306,7 +307,7 @@ position = Vector2(-117, 80)
 [node name="checkpoints" type="Node" parent="." unique_id=985853636]
 
 [node name="checkpoint" type="Node2D" parent="checkpoints" unique_id=638762026 groups=["checkpoints"]]
-position = Vector2(2305, 2)
+position = Vector2(2297, -1)
 
 [node name="checkpoint2" type="Node2D" parent="checkpoints" unique_id=592253342 groups=["checkpoints"]]
 position = Vector2(1908, 90)
@@ -393,7 +394,7 @@ position = Vector2(2542, -43)
 texto_da_fala = "guindaste..."
 
 [node name="ChangeTalk2" parent="ChangeTalk" unique_id=500092188 instance=ExtResource("26_2d2t1")]
-position = Vector2(2320, -42)
+position = Vector2(2337, -36)
 texto_da_fala = "Tenho que ir na locadora"
 
 [node name="PopCorn" type="Node" parent="." unique_id=1119874544]
@@ -403,3 +404,7 @@ position = Vector2(801, -19)
 
 [node name="Popcorn2" parent="PopCorn" unique_id=450202119 instance=ExtResource("27_1e8m6")]
 position = Vector2(-596, 60)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1687265923]
+stream = ExtResource("28_hpuym")
+volume_db = -15.0

@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player_health = get_node("../../Player/Health")
+@onready var player_health = get_node("../../Player")
 @onready var health_label = $PopCorn/Label
 
 func _ready():
