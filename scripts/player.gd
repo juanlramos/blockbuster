@@ -185,8 +185,9 @@ func _physics_process(delta):
 	rightTap = Input.is_action_just_pressed("ui_right")
 	leftRelease = Input.is_action_just_released("ui_left")
 	rightRelease = Input.is_action_just_released("ui_right")
-	jumpTap = Input.is_action_just_pressed("ui_accept")
-	jumpRelease = Input.is_action_just_released("ui_accept")
+	var joystick_jump_action := "pulo_joystick_web" if OS.has_feature("web") else "pulo_joystick_windows"
+	jumpTap = Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed(joystick_jump_action)
+	jumpRelease = Input.is_action_just_released("ui_accept") or Input.is_action_just_released(joystick_jump_action)
 	
 	#movimento direita e esquerda
 	if rightHold and leftHold and movementInputMonitoring:
