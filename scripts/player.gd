@@ -179,13 +179,16 @@ func _physics_process(delta):
 		dset = true
 
 		
-	leftHold = Input.is_action_pressed("ui_left")
-	rightHold = Input.is_action_pressed("ui_right")
-	leftTap = Input.is_action_just_pressed("ui_left")
-	rightTap = Input.is_action_just_pressed("ui_right")
-	leftRelease = Input.is_action_just_released("ui_left")
-	rightRelease = Input.is_action_just_released("ui_right")
-	var joystick_jump_action := "pulo_joystick_web" if OS.has_feature("web") else "pulo_joystick_windows"
+	var web_build := OS.has_feature("web")
+	var joystick_left_action := "joystick_dpad_left_web" if web_build else "joystick_dpad_left_windows"
+	var joystick_right_action := "joystick_dpad_right_web" if web_build else "joystick_dpad_right_windows"
+	leftHold = Input.is_action_pressed("ui_left") or Input.is_action_pressed(joystick_left_action)
+	rightHold = Input.is_action_pressed("ui_right") or Input.is_action_pressed(joystick_right_action)
+	leftTap = Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed(joystick_left_action)
+	rightTap = Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed(joystick_right_action)
+	leftRelease = Input.is_action_just_released("ui_left") or Input.is_action_just_released(joystick_left_action)
+	rightRelease = Input.is_action_just_released("ui_right") or Input.is_action_just_released(joystick_right_action)
+	var joystick_jump_action := "pulo_joystick_web" if web_build else "pulo_joystick_windows"
 	jumpTap = Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed(joystick_jump_action)
 	jumpRelease = Input.is_action_just_released("ui_accept") or Input.is_action_just_released(joystick_jump_action)
 	
